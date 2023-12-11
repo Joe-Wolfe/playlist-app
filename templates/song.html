@@ -8,7 +8,22 @@
 </div>
 
 <ul>
-  DISPLAY ALL OF THE PLAYLISTS THAT THIS SONG IS A PART OF
+  <div>
+    {% for playlist in song.playlists %}
+    <li><a href="/playlists/{{ playlist.id }}">
+        {{ playlist.name }}
+      </a></li>
+    {% endfor %}
+  </div>
 </ul>
 
+<div>
+  {% for playlist in playlists %}
+  <li><a href="/playlists/{{ playlist.id }}">
+      {{ playlist.name }}
+    </a></li>
+  {% endfor %}
+</div>
+
+<a class="btn btn-secondary" href="/playlists">Back</a>
 {% endblock %}

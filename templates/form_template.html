@@ -1,11 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
-
-<h1>Add a song to {{ playlist.name }}</h1>
-
-<h1>Add a form that when submitted adds a song to this playlist!</h1>
-
+{% macro render_form(form) %}
 {% if form.error%}
 <div class="alert alert-danger">
     {% for error in form.errors %}
@@ -19,7 +12,7 @@
     {% if field.widget.input_type != 'hidden' %}
     <p>
         {{ field.label }}
-        {{ field() }}
+        {{ field(class_="form-control") }}
 
         {% for error in field.errors %}
         <span class="form-text text-danger">{{ error }}</span>
@@ -29,4 +22,4 @@
     {% endfor %}
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-{% endblock %}
+{% endmacro %}

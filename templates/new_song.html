@@ -3,5 +3,8 @@
 {% block content %}
 
 <h1>Add a form that when submitted creates a new song!</h1>
-
+{% from "form_template.html" import render_form with context %}
+<div class="container">
+    {{ render_form(form) }}
+</div>
 {% endblock %}

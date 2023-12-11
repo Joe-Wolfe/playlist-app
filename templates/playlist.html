@@ -10,8 +10,19 @@
 </div>
 
 
-<div class="text-danger">
-  SHOW ALL OF THE SONGS IN THIS PLAYLIST HERE
+<div class="container">
+  {% if playlist.songs %}
+  <h2>Songs</h2>
+  <ul>
+    {% for song in playlist.songs %}
+    <li>
+      <a href="/songs/{{ song.id }}">{{ song.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>This playlist has no songs yet!</p>
+  {% endif %}
 </div>
 
 <p>
@@ -19,5 +30,7 @@
     Add Song To Playlist
   </a>
 </p>
+
+<a class="btn btn-secondary" href="/playlists">Back</a>
 
 {% endblock %}
